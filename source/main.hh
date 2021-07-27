@@ -1,3 +1,7 @@
 #pragma once
 
-#include <stdio.h>
+#include <curses.h>
+#include <ncurses.h>
+#include <unistd.h>
+#include <cstdio>
+#include <cstdlib>
