@@ -9,6 +9,6 @@ if [[ $1 -eq "debug" ]]; then
 fi
 
 
-g++ $extra -lncursesw source/**.c* -o build/game
+g++ $extra -lncurses -lncursesw source/**.c* -o build/game
 # make it linear so the gitub bot can build it correctly
 # g++ $extra $(python tools/get-depends.py) source/**.c* -o build/$(python tools/get-version.py nospace nocaps)
