@@ -1,13 +1,8 @@
-#include <SFML/Graphics/Color.hpp>
-#include <SFML/Graphics/PrimitiveType.hpp>
-#include <SFML/Graphics/RenderTexture.hpp>
-#include <SFML/Graphics/Vertex.hpp>
 #include <SFML/Main.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
-#include <SFML/Window/Keyboard.hpp>
 #include <stdio.h>
 
 int main() {
