@@ -1,3 +1,3 @@
 #! /usr/bin/sh
 
-g++ -o game src/*.cc -lsfml-graphics -lsfml-window -lsfml-system
+g++ $@ -std=c++17 -pthread -o game src/*.cc -lsfml-graphics -lsfml-window -lsfml-system -lX11
