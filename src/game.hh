@@ -1,45 +1,47 @@
-#pragma once
+#ifndef __GAMEHH__
+#define __GAMEHH__
 
+// == SFML Includes
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include <thread>
-#include <sstream>
-#include <chrono>
-#include <unistd.h>
-#include <cstdlib>
-#include <climits>
+#include <SFML/Audio.hpp>
 
+// == Standard C++ includes
+#include <iostream>
+#include <cstdint>
+#include <cstdlib>
+#include <cstddef>
+#include <thread>
+#include <chrono>
+
+// == Main namespace
 namespace game {
-    class state {
-        public:
-        sf::Vector2i mouse;
-        state();
-        ~state();
-    };
-    class graphics {
-        public:
-        sf::Font font;
-        sf::RenderWindow *Window;
-        sf::Text displayText;
-        void update();
-        void render();
-        graphics();
-        ~graphics();
-    };
+    // == Typedefs
+    typedef uint8_t stage_t;
+    
     class engine {
+
+        // == Window handling
         private:
-        char *env_user;
-        char env_host[HOST_NAME_MAX];
+            sf::RenderWindow gWindow;
+            void gWindowPollEvents();
+
         public:
-        sf::Event ev;
-        game::state *state;
-        game::graphics *graphics;
-        void pollEvents();
-        void updateState();
-        void update();
-        void render();
-        engine();
-        ~engine();
+            engine();
+            ~engine();
+
+        // == Engine
+        public:
+            void eRun();
+            void eUpdate();
+            void eRender();
+
+        protected:
+            void dLoadStage(stage_t stage);
+
+
     };
 }
+
+#endif
