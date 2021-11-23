@@ -1,15 +1,15 @@
 SFML_LIBS = system window graphics audio
-LIBS = X11
+LIBS = X11 cairo
 OUTPUT_PATH = ./bin
-
-OBJ = main.o engine.o graphics.o events.o
+DEPS = $(wildcard src/include/*.hh)
+OBJ = $(patsubst src/%.cc,%.o,$(wildcard src/*.cc))
 
 # [Default] Release, optimized
-%.o: src/%.cc src/game.hh
+%.o: src/%.cc $(DEPS)
 	mkdir -p $(OUTPUT_PATH) && g++ -c -O2 -o $(OUTPUT_PATH)/$@ $<
 
 # Debug
-d%.o: src/%.cc src/game.hh
+d%.o: src/%.cc $(DEPS)
 	mkdir -p $(OUTPUT_PATH) && g++ -c -g -o $(OUTPUT_PATH)/$@ $<
 
 # [Default] Release, optimized
