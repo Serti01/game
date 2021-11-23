@@ -4,15 +4,13 @@ OUTPUT_PATH = ./bin
 
 OBJ = main.o engine.o graphics.o events.o
 
-
 # [Default] Release, optimized
 %.o: src/%.cc src/game.hh
-	g++ -c -O2 -o $(OUTPUT_PATH)/$@ $<
+	mkdir -p $(OUTPUT_PATH) && g++ -c -O2 -o $(OUTPUT_PATH)/$@ $<
 
 # Debug
 d%.o: src/%.cc src/game.hh
-	g++ -c -g -o $(OUTPUT_PATH)/$@ $<
-
+	mkdir -p $(OUTPUT_PATH) && g++ -c -g -o $(OUTPUT_PATH)/$@ $<
 
 # [Default] Release, optimized
 game: $(OBJ)
