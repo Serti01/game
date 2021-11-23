@@ -12,6 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Install Eependencies
+      run: sudo apt-get update && sudo apt-get install libsfml-dev libx11-dev
+
     - name: make
       run: make
