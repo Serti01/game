@@ -23,7 +23,7 @@ game: $(OBJ)
 game-debug: $(patsubst %,d%,$(OBJ))
 	g++ -o $(OUTPUT_PATH)/$@ \
 	$(patsubst %,$(OUTPUT_PATH)/%,$^) \
-	$(patsubst %,-lsfml-%,$(SFML_LIBS))
+	$(patsubst %,-lsfml-%,$(SFML_LIBS)) \
 	$(patsubst %,-l%,$(LIBS))
 
 .PHONY: clean
