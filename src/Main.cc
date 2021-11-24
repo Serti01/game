@@ -1,10 +1,10 @@
-#include "game.hh"
+#include "include/mEngine.hh"
 #include <X11/Xlib.h>
 
 int main() {
 	XInitThreads();
 
-	game::engine engine;
+	mEngine engine;
 	engine.eRun();
 
 	return 0;
