@@ -14,7 +14,9 @@
 #include <cstddef>
 
 // == Local includes
+#include "mPhysicsObject.hh"
 #include "mEntity.hh"
+#include "mPlayer.hh"
 
 // == Typedefs
 typedef uint8_t stage_t;
@@ -38,7 +40,7 @@ class mEngine {
         void eRender();
 
     protected:
-        mEntity dPlayer;
+        mPlayer dPlayer;
         void dLoadStage(stage_t stage);
 };
 

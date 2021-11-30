@@ -7,8 +7,6 @@ mEngine::mEngine() {
     this->gWindow.setVerticalSyncEnabled(true);
 
     // Create player
-    this->dPlayer.loadSpriteFromFile("res/img/player.png", {});
-    this->dPlayer = mEntity();
     this->dPlayer.setMaxVelocity({10.0f, 10.0f});
 
     // Load first stage
@@ -30,6 +28,7 @@ void mEngine::eRun() {
 // == Update cycle
 void mEngine::eUpdate() {
     this->dPlayer.update();
+    this->dPlayer.updatePosition();
 }
 
 // == Render cycle
@@ -40,9 +39,9 @@ void mEngine::eRender() {
     sf::Sprite rSprite;
 
     rTexture.create(gWindow.getSize().x, gWindow.getSize().y);
+    rSprite.setTexture(rTexture.getTexture());
     
     dPlayer.render(rTexture);
-    rSprite.setTexture(rTexture.getTexture());
     
     gWindow.draw(rSprite);
 

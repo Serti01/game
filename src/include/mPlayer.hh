@@ -1,5 +1,5 @@
-#ifndef __MENTITYHH__
-#define __MENTITYHH__
+#ifndef __MPLAYERHH__
+#define __MPLAYERHH__
 
 // == SFML includes
 #include <SFML/System.hpp>
@@ -15,21 +15,24 @@
 
 // == Local includes
 #include "mPhysicsObject.hh"
+#include "mEntity.hh"
 
-class mEntity : public mPhysicsObject {
+class mPlayer : public mPhysicsObject {
     // == Sprite and Texture data
     public:
-        sf::Texture dPlayerTexture;
+        sf::Texture dTexture;
         sf::Sprite dSprite;
 
     // == Public interface
     public:
+        void loadSprite();
+        void updatePosition();
         void render(sf::RenderTexture &aCanvas);
 
     // == Con/Destructor
     public:
-        mEntity();
-        ~mEntity();
+        mPlayer();
+        ~mPlayer();
 };
 
 #endif

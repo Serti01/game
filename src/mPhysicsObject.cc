@@ -2,10 +2,6 @@
 
 mPhysicsObject::mPhysicsObject() {}
 
-mPhysicsObject::mPhysicsObject(sf::FloatRect aBounds) {
-    this->dBounds = aBounds;
-}
-
 mPhysicsObject::~mPhysicsObject() {}
 
 void mPhysicsObject::update() {
